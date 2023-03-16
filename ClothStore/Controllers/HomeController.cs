@@ -26,5 +26,19 @@ namespace ClothStore.Controllers
 
             return View();
         }
+
+        public ActionResult Product()
+        {
+            ViewBag.Message = "Your product page.";
+
+            return View();
+        }
+
+        public ActionResult Details()
+        {
+            ViewBag.Message = "Your details page.";
+
+            return View();
+        }
     }
 }

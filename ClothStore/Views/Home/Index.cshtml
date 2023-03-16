@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Trang Chủ";
 }
 <!--welcome-hero start -->
 <header id="home" class="welcome-hero">
@@ -172,7 +172,7 @@
                                 <a href="#"><span class="lnr lnr-magnifier"></span></a>
                             </li><!--/.search-->
                             <li class="nav-setting">
-                                <a href="#"><span class="lnr lnr-cog"></span></a>
+                                <a href="#"><span class="fa-regular fa-circle-user"></span></a>
                             </li><!--/.search-->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -224,18 +224,18 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html">sine<span>mkt</span>.</a>
+                        <a class="navbar-brand" href="/Home/Index">Đây là cái <span>LOGO</span></a>
 
                     </div><!--/.navbar-header-->
                     <!-- End Header Navigation -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class=" scroll active"><a href="#home">home</a></li>
-                            <li class="scroll"><a href="#new-arrivals">new arrival</a></li>
-                            <li class="scroll"><a href="#feature">features</a></li>
-                            <li class="scroll"><a href="#blog">blog</a></li>
-                            <li class="scroll"><a href="#newsletter">contact</a></li>
+                            <li class=" scroll active"><a href="#home">Trang Chủ</a></li>
+                            <li class="scroll"><a href="#new-arrivals">Sản Phẩm Mới</a></li>
+                            <li class="scroll"><a href="#feature">Nổi Bật</a></li>
+                            <li class="scroll"><a href="#blog">Blog</a></li>
+                            <li class="scroll"><a href="#newsletter">Liên Hệ</a></li>
                         </ul><!--/.nav -->
                     </div><!-- /.navbar-collapse -->
                 </div><!--/.container-->
@@ -319,7 +319,7 @@
 <section id="new-arrivals" class="new-arrivals">
     <div class="container">
         <div class="section-header">
-            <h2>new arrivals</h2>
+            <h2>Sản Phẩm Mới</h2>
         </div><!--/.section-header-->
         <div class="new-arrivals-content">
             <div class="row">
@@ -500,6 +500,9 @@
                 </div>
             </div>
         </div>
+
+        <button type="button" class="btn btn-block" onclick="window.location.href='/Home/Product'"><b>Tất cả sản phẩm</b></button>
+
     </div><!--/.container-->
 
 </section><!--/.new-arrivals-->
@@ -547,7 +550,7 @@
 <section id="feature" class="feature">
     <div class="container">
         <div class="section-header">
-            <h2>featured products</h2>
+            <h2>Sản Phẩm Nổi Bật</h2>
         </div><!--/.section-header-->
         <div class="feature-content">
             <div class="row">
@@ -629,7 +632,7 @@
 <section id="blog" class="blog">
     <div class="container">
         <div class="section-header">
-            <h2>latest blog</h2>
+            <h2>Blog</h2>
         </div><!--/.section-header-->
         <div class="blog-content">
             <div class="row">
@@ -685,117 +688,6 @@
 
 </section><!--/.blog-->
 <!--blog end -->
-<!-- clients strat -->
-<section id="clients" class="clients">
-    <div class="container">
-        <div class="owl-carousel owl-theme" id="client">
-            <div class="item">
-                <a href="#">
-                    <img src="~/Content/images/clients/c1.png" alt="brand-image" />
-                </a>
-            </div><!--/.item-->
-            <div class="item">
-                <a href="#">
-                    <img src="~/Content/images/clients/c2.png" alt="brand-image" />
-                </a>
-            </div><!--/.item-->
-            <div class="item">
-                <a href="#">
-                    <img src="~/Content/images/clients/c3.png" alt="brand-image" />
-                </a>
-            </div><!--/.item-->
-            <div class="item">
-                <a href="#">
-                    <img src="~/Content/images/clients/c4.png" alt="brand-image" />
-                </a>
-            </div><!--/.item-->
-            <div class="item">
-                <a href="#">
-                    <img src="~/Content/images/clients/c5.png" alt="brand-image" />
-                </a>
-            </div><!--/.item-->
-        </div><!--/.owl-carousel-->
 
-    </div><!--/.container-->
 
-</section><!--/.clients-->
-<!-- clients end -->
-<!--newsletter strat -->
-<section id="newsletter" class="newsletter">
-    <div class="container">
-        <div class="hm-footer-details">
-            <div class="row">
-                <div class=" col-md-3 col-sm-6 col-xs-12">
-                    <div class="hm-footer-widget">
-                        <div class="hm-foot-title">
-                            <h4>information</h4>
-                        </div><!--/.hm-foot-title-->
-                        <div class="hm-foot-menu">
-                            <ul>
-                                <li><a href="#">about us</a></li><!--/li-->
-                                <li><a href="#">contact us</a></li><!--/li-->
-                                <li><a href="#">news</a></li><!--/li-->
-                                <li><a href="#">store</a></li><!--/li-->
-                            </ul><!--/ul-->
-                        </div><!--/.hm-foot-menu-->
-                    </div><!--/.hm-footer-widget-->
-                </div><!--/.col-->
-                <div class=" col-md-3 col-sm-6 col-xs-12">
-                    <div class="hm-footer-widget">
-                        <div class="hm-foot-title">
-                            <h4>collections</h4>
-                        </div><!--/.hm-foot-title-->
-                        <div class="hm-foot-menu">
-                            <ul>
-                                <li><a href="#">wooden chair</a></li><!--/li-->
-                                <li><a href="#">royal cloth sofa</a></li><!--/li-->
-                                <li><a href="#">accent chair</a></li><!--/li-->
-                                <li><a href="#">bed</a></li><!--/li-->
-                                <li><a href="#">hanging lamp</a></li><!--/li-->
-                            </ul><!--/ul-->
-                        </div><!--/.hm-foot-menu-->
-                    </div><!--/.hm-footer-widget-->
-                </div><!--/.col-->
-                <div class=" col-md-3 col-sm-6 col-xs-12">
-                    <div class="hm-footer-widget">
-                        <div class="hm-foot-title">
-                            <h4>my accounts</h4>
-                        </div><!--/.hm-foot-title-->
-                        <div class="hm-foot-menu">
-                            <ul>
-                                <li><a href="#">my account</a></li><!--/li-->
-                                <li><a href="#">wishlist</a></li><!--/li-->
-                                <li><a href="#">Community</a></li><!--/li-->
-                                <li><a href="#">order history</a></li><!--/li-->
-                                <li><a href="#">my cart</a></li><!--/li-->
-                            </ul><!--/ul-->
-                        </div><!--/.hm-foot-menu-->
-                    </div><!--/.hm-footer-widget-->
-                </div><!--/.col-->
-                <div class=" col-md-3 col-sm-6  col-xs-12">
-                    <div class="hm-footer-widget">
-                        <div class="hm-foot-title">
-                            <h4>newsletter</h4>
-                        </div><!--/.hm-foot-title-->
-                        <div class="hm-foot-para">
-                            <p>
-                                Subscribe  to get latest news,update and information.
-                            </p>
-                        </div><!--/.hm-foot-para-->
-                        <div class="hm-foot-email">
-                            <div class="foot-email-box">
-                                <input type="text" class="form-control" placeholder="Enter Email Here....">
-                            </div><!--/.foot-email-box-->
-                            <div class="foot-email-subscribe">
-                                <span><i class="fa fa-location-arrow"></i></span>
-                            </div><!--/.foot-email-icon-->
-                        </div><!--/.hm-foot-email-->
-                    </div><!--/.hm-footer-widget-->
-                </div><!--/.col-->
-            </div><!--/.row-->
-        </div><!--/.hm-footer-details-->
-
-    </div><!--/.container-->
-
-</section><!--/newsletter-->
-<!--newsletter end -->
+<script src="https://kit.fontawesome.com/818e023cf2.js" crossorigin="anonymous"></script>
