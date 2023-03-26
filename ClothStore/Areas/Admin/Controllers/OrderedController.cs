@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ClothStore.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class OrderedController : Controller
     {
         ApplicationDbContext _dbContext = new ApplicationDbContext();

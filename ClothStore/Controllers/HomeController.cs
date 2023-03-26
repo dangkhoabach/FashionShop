@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClothStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,10 @@ namespace ClothStore.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext _dbContext = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            return View(_dbContext.MatHang.Take(8).ToList());
         }
 
         public ActionResult About()

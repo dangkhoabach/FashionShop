@@ -283,8 +283,8 @@
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
-    <Content Include="Content\logo\favicon.png" />
-    <Content Include="Content\logo\logo.png" />
+    <Content Include="Content\logo\luxe_fashion_hub_icon.ico" />
+    <Content Include="Content\logo\luxe_fashion_hub_logotrans.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -442,9 +442,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Details - Backup.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\__Register.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
