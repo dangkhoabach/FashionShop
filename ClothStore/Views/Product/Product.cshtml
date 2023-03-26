@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Tất Cả Sản Phẩm";
+}
+
+<link href="~/Content/css/productstyle.css" rel="stylesheet">
+
+<section class="new-arrivals" style="margin-top: 50px">
+    <div class="container">
+        <div class="section-header">
+            <h2>Tất Cả Sản Phẩm</h2>
+        </div><!--/.section-header-->
+        <div class="new-arrivals-content">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-3">
+                        <div class="single-new-arrival">
+                            <div class="single-new-arrival-bg">
+                                <a href="/Product/Details/@item.MaMatHang">
+                                    <img src="@item.HinhAnh" alt="images" style="height: 360px; width: 360px; object-fit: contain">
+                                </a>
+                                <div class="single-new-arrival-bg-overlay"></div>
+                                <div class="new-arrival-cart">
+                                    <p>
+                                        <span class="lnr lnr-cart"></span>
+                                        <a href="@Url.Action("ThemGioHang","GioHang", new { MaMatHang = item.MaMatHang,
+                                            @strURL = Request.Url.ToString()})">Thêm <span>vào </span> giỏ hàng</a>
+                                    </p>
+                                    <p class="arrival-review pull-right">
+                                        <span class="lnr lnr-heart"></span>
+                                        <span class="lnr lnr-frame-expand"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <h4><a href="/Product/Details/@item.MaMatHang">@item.TenMatHang</a></h4>
+                            <p class="arrival-product-price">@item.DonGia</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

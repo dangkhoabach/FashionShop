@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ClothStore.Models.MatHang>
+
+@{
+    ViewBag.Title = "[Admin] Tất cả sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                STT
+            </th>
+            <th scope="col">
+                Tên loại
+            </th>
+            <th scope="col">
+                Nhà cung cấp
+            </th>
+            <th scope="col">
+                Tên mặt hàng
+            </th>
+            <th scope="col">
+                Đơn vị
+            </th>
+            <th scope="col">
+                Đơn giá
+            </th>
+            <th scope="col">
+                Mô tả
+            </th>
+            <th scope="col">
+                Hình ảnh
+            </th>
+            <th scope="col">
+                Số lượng
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    @{int i = 1;}
+<tbody class="table-group-divider">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="vertical-align: middle">@i</td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.LoaiHang.TenLoai)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.NCC.TenNCC)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.TenMatHang)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Dvt)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td style="vertical-align: middle">
+                <img src="@Html.DisplayFor(modelItem => item.HinhAnh)" style="height: auto; width: 150px; object-fit: contain" />
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.ActionLink("Chi tiết", "Details", new { MaMatHang = item.MaMatHang }) |
+                @Html.ActionLink("Xóa", "Delete", new { MaMatHang = item.MaMatHang })
+            </td>
+        </tr>
+        {i++;}
+    }
+</tbody>
+</table>

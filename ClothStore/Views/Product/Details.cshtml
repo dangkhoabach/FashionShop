@@ -1,0 +1,68 @@
+﻿@model ClothStore.Models.MatHang
+@{
+    ViewBag.Title = "Details";
+}
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="section-header">
+            <h2 style="margin: 50px 0 70px">Chi Tiết Sản Phẩm</h2>
+        </div><!--/.section-header-->
+        <div class="contact_section layout_padding">
+            <div class="container">
+                <div class="contact_section_2">
+                    <div class="row">
+
+                        <div class="container bootdey">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-md-6">
+                                            <img src="@Model.HinhAnh" alt="images">
+                                            <div class="d-grid gap-2 d-md-block">
+                                                <a class="btn btn-success" href="/Home/Edit/@Model.MaMatHang">Sửa sản phẩm</a>
+                                                @Html.ActionLink("Xóa", "Delete", new { MaMatHang = Model.MaMatHang }, new { onclick = "return confirm('Bạn có muốn xóa cuốn sách này không?');", @class = "delete-button" })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h2>@Model.TenMatHang</h2>
+                                            <p>
+                                                @Model.MoTa
+                                            </p>
+
+                                            <div class="m-bot15"> <strong>Giá: </strong><span class="pro-price">@Model.DonGia</span></div>
+                                            <div class="form-group">
+                                                <label>Số lượng:</label><input type="number" placeholder="1" min="0" class="form-control quantity" style="width:80px">
+                                            </div>
+                                            <p>
+                                                #@Model.MaMatHang &nbsp; #@Model.NCC.TenNCC &nbsp; #@Model.LoaiHang.TenLoai
+                                            </p>
+                                            <p>
+                                                <a href=@Url.Action("ThemGioHang","GioHang", new {MaMatHang = Model.MaMatHang,
+                                        @strURL = Request.Url.ToString()}) class="btn btn-info" type="button">
+                                                    <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="map_main">
+                                <div class="map-responsive">
+                                    <img scr="#" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@using (Html.BeginForm("Delete", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+}

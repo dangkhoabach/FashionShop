@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ClothStore.Models.GioHang>
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+<!doctype html>
+<head>
+    <title>Giỏ hàng</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/css/cartstyle.css" rel="stylesheet">
+</head>
+
+<section class="h-100 gradient-custom">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Giỏ hàng</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Single item -->
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                    <!-- Image -->
+                                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                        <img src="@item.HinhAnh"
+                                             class="w-100" alt="" />
+                                        <a href="#">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                        </a>
+                                    </div>
+                                    <!-- Image -->
+                                </div>
+                                using (Html.BeginForm("CapNhatGioHang", "GioHang", new { MaMatHang = item.maMatHang }))
+                                {
+                                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Data -->
+                                        <p><strong>@item.TenMatHang</strong></p>
+                                        <p>@item.Dvt</p>
+                                        <p>@item.DonGia</p>
+                                        <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                                                title="Xóa khỏi giỏ hàng">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <!-- Data -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Quantity -->
+                                        <div class="d-flex mb-4" style="max-width: 70px">
+                                            <div class="form-outline">
+                                                <input id="form1" min="0" name="quantity" value="@item.SoLuong" type="number" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <!-- Quantity -->
+                                        <!-- Price -->
+                                        <p class="text-start text-md-center">
+                                            <strong style="color: #d9534f; font-size: 17px">@item.ThanhTien</strong>
+                                        </p>
+                                        <!-- Price -->
+                                    </div>
+                                }
+                                <hr class="my-4" />
+                            }
+                        </div>
+                        <!-- Single item -->
+                        <hr class="my-4" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Tổng tiền</h5>
+                        <span class="total"><strong>@ViewBag.TongTien</strong></span>
+                    </div>
+                    <div class="card-body" style="margin-top: 10px">
+                        <button class="btn btn-info btn-lg btn-block" onclick="window.location.href='/GioHang/DatHang'">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -21,9 +21,14 @@ namespace ClothStore.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FashionShopModel", throwIfV1Schema: false)
         {
         }
+        public virtual DbSet<CT_HoaDon> CT_HoaDon { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
+        public virtual DbSet<LoaiHang> LoaiHang { get; set; }
+        public virtual DbSet<MatHang> MatHang { get; set; }
+        public virtual DbSet<NCC> NCC { get; set; }
 
         public static ApplicationDbContext Create()
         {

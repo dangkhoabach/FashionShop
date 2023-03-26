@@ -35,6 +35,10 @@ namespace ClothStore.Models
         [StringLength(10)]
         public string MaNCC { get; set; }
 
+        public string HinhAnh { get; set; }
+
+        public int? SoLuong { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HoaDon> CT_HoaDon { get; set; }
 

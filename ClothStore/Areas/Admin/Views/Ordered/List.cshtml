@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ClothStore.Models.HoaDon>
+
+@{
+    ViewBag.Title = "[Admin] Danh sách đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách đơn hàng</h2>
+
+<p>
+    @Html.ActionLink("Thêm đơn hàng mới", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                Mã hóa đơn
+            </th>
+            <th scope="col">
+                Ngày lập
+            </th>
+            <th scope="col">
+                Tổng tiền
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.MaHoaDon)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.NgayLap)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.ActionLink("Chi tiết", "Details", new { MaHoaDon = item.MaHoaDon }) |
+                    @Html.ActionLink("Xóa", "Delete", new { MaHoaDon = item.MaHoaDon })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

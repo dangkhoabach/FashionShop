@@ -1,0 +1,133 @@
+﻿@model ClothStore.Models.MatHang
+
+@{
+    ViewBag.Title = "[Admin] Thông tin sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*EDIT*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Thay đổi thông tin sản phẩm</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaMatHang)
+
+    <div class="row">
+        <div class="col-7">
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Tên mặt hàng</label>
+                @Html.EditorFor(model => model.TenMatHang, new { htmlAttributes = new { @class = "form-control", id = "txtTenMatHang" } })
+                @Html.ValidationMessageFor(model => model.TenMatHang, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Đơn giá</label>
+                @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control", id = "txtDonGia" } })
+                @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Đơn vị</label>
+                @Html.EditorFor(model => model.Dvt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dvt, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Số lượng</label>
+                @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Mô tả</label>
+                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control", id = "txtMoTa" } })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Loại hàng</label>
+                @Html.DropDownList("MaLoai", new SelectList(ViewBag.LoaiHang, "MaLoai", "TenLoai"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaLoai, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Nhà cung cấp</label>
+                @Html.DropDownList("MaNCC", new SelectList(ViewBag.NCC, "MaNCC", "TenNCC"), htmlAttributes: new { @class = "form-control", id = "ChonNCC" })
+                @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Ảnh sản phẩm</label>
+                <input type="file" class="form-control" id="uploadimages">
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-outline-danger" />
+            </div>
+        </div>
+        <div class="col-5">
+            <p class="card-text"><small class="text-body-secondary" style="color: #eb1616; font-size: medium"><b>Live Preview</b></small></p>
+            <div class="border border-danger" style="margin:25px; padding: 25px">
+                <h4 class="card-title" id="lbTenMatHang" style="word-wrap: break-word; max-width: 500px">@Html.DisplayFor(model => model.TenMatHang)</h4>
+                <img src="@Html.DisplayFor(model => model.HinhAnh)" class="card-img-top" id="previewimages" style="height: auto; width: 350px; object-fit: contain; margin-top: 10px">
+                <div class="card-body">
+                    <h5 class="card-title" id="lbDonGia">@Html.DisplayFor(model => model.DonGia)</h5>
+                    <p class="card-text" id="lbMoTa" style="word-wrap: break-word; max-width: 460px">@Html.DisplayFor(model => model.MoTa)</p>
+                    <div>Nhà cung cấp: <span class="text-body-secondary" id="lbNCC">@Html.DisplayFor(model => model.NCC.TenNCC)</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+}
+<hr />
+@Html.ActionLink("Quay lại danh sách", "ListProduct")
+</p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    /*Tên mặt hàng*/
+    var txtTenMatHang = document.getElementById("txtTenMatHang");
+    var lbTenMatHang = document.getElementById("lbTenMatHang");
+
+    txtTenMatHang.addEventListener("input", function () {
+        lbTenMatHang.innerHTML = txtTenMatHang.value;
+    });
+
+    /*Đơn Giá*/
+    var txtDonGia = document.getElementById("txtDonGia");
+    var lbDonGia = document.getElementById("lbDonGia");
+
+    txtDonGia.addEventListener("input", function () {
+        lbDonGia.innerHTML = txtDonGia.value;
+    });
+
+    /*Mô Tả*/
+    var txtMoTa = document.getElementById("txtMoTa");
+    var lbMoTa = document.getElementById("lbMoTa");
+
+    txtMoTa.addEventListener("input", function () {
+        lbMoTa.innerHTML = txtMoTa.value;
+    });
+
+    /*Nhà Cung Cấp*/
+    var ChonNCC = document.getElementById("ChonNCC");
+    var lbNCC = document.getElementById("lbNCC");
+
+    ChonNCC.addEventListener("change", function () {
+        var selectedOption = ChonNCC.options[ChonNCC.selectedIndex];
+        lbNCC.innerText = selectedOption.innerText;
+    });
+
+    /*Ảnh sản phẩm*/
+    var uploadimages = document.getElementById("uploadimages");
+    var previewimages = document.getElementById("previewimages");
+
+    uploadimages.addEventListener("change", function () {
+        var file = uploadimages.files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            previewimages.src = reader.result;
+        });
+        reader.readAsDataURL(file);
+    });
+</script>
