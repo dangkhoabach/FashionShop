@@ -5,32 +5,48 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h4>Chi tiết đơn hàng</h4>
 
-<div>
-    @foreach (var item in ViewBag.CTHD)
-    {
-    <div class="row">
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Mã đơn hàng</label>
-            @Html.DisplayFor(model => model.MaHoaDon)
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Tên mặt hàng</label>
-            @Html.DisplayFor(model => model.MatHang.TenMatHang)
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Mã loại</label>
-            @Html.DisplayFor(model => model.MaLoai)
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Số lượng</label>
-            @Html.DisplayFor(model => model.SoLuong)
-        </div>
-    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                Mã đơn hàng
+            </th>
+            <th scope="col">
+                Tên mặt hàng
+            </th>
+            <th scope="col">
+                Mã loại
+            </th>
+            <th scope="col">
+                Số lượng
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+    @using (Html.BeginForm("DeleteCTHD", "Ordered", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    { 
+        foreach (var item in ViewBag.CTHD)
+        {
+            <tr>
+                <td style="vertical-align: middle">
+                    @item.MaHoaDon
+                </td>
+                <td style="vertical-align: middle">
+                    @item.MatHang.TenMatHang
+                </td>
+                <td style="vertical-align: middle">
+                    @item.MatHang.LoaiHang.MaLoai
+                </td>
+                <td style="vertical-align: middle">
+                    @item.SoLuong
+                </td>
+            </tr>
+        }
     }
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Quay lại danh sách đơn hàng", "List")
-</p>
+    </tbody>
+</table>
+@Html.ActionLink("Quay lại danh sách đơn hàng", "List")
