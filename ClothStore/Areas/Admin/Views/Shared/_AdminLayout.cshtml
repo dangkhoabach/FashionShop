@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     Layout = null;
 }
 
@@ -72,10 +73,10 @@
                     <a href="/Admin/AdProduct/ListProduct" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Sản phẩm</a>
                     <a href="/Admin/Ordered/List" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Đơn hàng</a>
                     @*<a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>*@
+                        <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>*@
                 </div>
             </nav>
-        </div>  
+        </div>
     </div>
     <!-- Sidebar End -->
     <!-- Content Start -->
@@ -107,7 +108,9 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">Tài khoản</a>
-                        <a href="#" class="dropdown-item">Đăng xuất</a>
+                        @*<a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Đăng xuất</a>*@
+                        <a href="#" asp-controller="Account" asp-action="LogOff" class="dropdown-item">Đăng xuất</a>
+
                     </div>
                 </div>
             </div>

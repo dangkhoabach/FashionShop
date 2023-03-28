@@ -18,11 +18,9 @@
                                     <div class="panel-body">
                                         <div class="col-md-6">
                                             <img src="@Model.HinhAnh" alt="images">
-                                            <div class="d-grid gap-2 d-md-block">
-                                                <a class="btn btn-success" href="/Home/Edit/@Model.MaMatHang">Sửa sản phẩm</a>
-                                                @Html.ActionLink("Xóa", "Delete", new { MaMatHang = Model.MaMatHang }, new { onclick = "return confirm('Bạn có muốn xóa cuốn sách này không?');", @class = "delete-button" })
+@*                                            <div class="d-grid gap-2 d-md-block">
 
-                                            </div>
+                                            </div>*@
                                         </div>
                                         <div class="col-md-6">
                                             <h2>@Model.TenMatHang</h2>
