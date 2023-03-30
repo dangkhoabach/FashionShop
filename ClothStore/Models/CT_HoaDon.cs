@@ -13,10 +13,6 @@ namespace ClothStore.Models
         [StringLength(10)]
         public string MaMatHang { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MaLoai { get; set; }
-
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -22,6 +22,19 @@ namespace ClothStore.Models
 
         public long? TongTien { get; set; }
 
+        public bool? TrangThai { get; set; }
+
+        public bool? ThanhToan { get; set; }
+
+        public bool? GiaoHang { get; set; }
+
+        [StringLength(100)]
+        public string DiaChiGiao { get; set; }
+
+        [Required]
+        [StringLength(128)]
+        public string Id { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HoaDon> CT_HoaDon { get; set; }
     }

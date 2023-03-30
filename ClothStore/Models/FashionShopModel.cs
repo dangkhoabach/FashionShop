@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace ClothStore.Models
 {
-    public partial class FashionShop : DbContext
+    public partial class FashionShopModel : DbContext
     {
-        public FashionShop()
-            : base("name=FashionShop")
+        public FashionShopModel()
+            : base("name=FashionShopModel")
         {
         }
 
@@ -17,16 +17,11 @@ namespace ClothStore.Models
         public virtual DbSet<LoaiHang> LoaiHang { get; set; }
         public virtual DbSet<MatHang> MatHang { get; set; }
         public virtual DbSet<NCC> NCC { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CT_HoaDon>()
                 .Property(e => e.MaMatHang)
-                .IsFixedLength();
-
-            modelBuilder.Entity<CT_HoaDon>()
-                .Property(e => e.MaLoai)
                 .IsFixedLength();
 
             modelBuilder.Entity<HoaDon>()

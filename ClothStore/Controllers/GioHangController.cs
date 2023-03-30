@@ -1,4 +1,6 @@
 ﻿using ClothStore.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,14 +118,62 @@ namespace ClothStore.Controllers
             return RedirectToAction("GioHang");
         }
         [Authorize]
+        [HttpGet]
         public ActionResult DatHang()
         {
             List<GioHang> lstGioHang = LayGioHang();
             ViewBag.TongsoLuong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             ViewBag.Tongsoluongsanpham = TongSoLuongSanPham();
-            //ViewBag.KhachHang = dbContext.Users.Find(id);
+            ViewBag.TenKH = User.Identity.GetUserName();
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = userManager.FindById(User.Identity.GetUserId());
+            ViewBag.Name = user.UserName;
+            ViewBag.SoDT = user.PhoneNumber;
             return View(lstGioHang);
+        }
+        [HttpPost]
+        public ActionResult DatHang(FormCollection collection)
+        {
+            HoaDon hoadon = new HoaDon();
+            MatHang mathang = new MatHang();
+
+            List<GioHang> lstCart = LayGioHang();
+            ///var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
+            var userId = User.Identity.GetUserId();
+            hoadon.Id = userId;
+            hoadon.NgayLap = DateTime.Now;
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = userManager.FindById(User.Identity.GetUserId());
+            /*hoadon.DiaChiGiao = user.Address;*/
+            //order.Delivery_date = DateTime.Parse(ngaygiao);
+            hoadon.GiaoHang = false;
+            hoadon.TongTien = TongTien();
+            hoadon.ThanhToan = false;
+            hoadon.TrangThai = true;
+
+            dbContext.HoaDon.Add(hoadon);
+            dbContext.SaveChanges();
+
+            foreach (var item in lstCart)
+            {
+                CT_HoaDon detail = new CT_HoaDon();
+                detail.MaHoaDon = hoadon.MaHoaDon;
+                detail.MaMatHang = item.maMatHang;
+                detail.SoLuong = item.SoLuong;
+                mathang = dbContext.MatHang.FirstOrDefault(n => n.MaMatHang == item.maMatHang);
+                mathang.SoLuong -= item.SoLuong;
+                dbContext.SaveChanges();
+
+                dbContext.CT_HoaDon.Add(detail);
+            }
+            dbContext.SaveChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("XacNhanDonHang", "GioHang");
+        }
+        public ActionResult XacNhanDonHang()
+        {
+            return View();
         }
     }
 }
