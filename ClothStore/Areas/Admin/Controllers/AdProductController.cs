@@ -91,6 +91,7 @@ namespace ClothStore.Areas.Admin.Controllers
                 item.DonGia = mh.DonGia;
                 item.TenMatHang = mh.TenMatHang;
                 item.Dvt = mh.Dvt;
+                item.SoLuong = mh.SoLuong;
                 _dbContext.MatHang.AddOrUpdate(item);
                 _dbContext.SaveChanges();
             }
@@ -98,7 +99,7 @@ namespace ClothStore.Areas.Admin.Controllers
             {
                 ViewBag.FileStatus = "Eror update images";
             }
-            return RedirectToAction("Details", "AdProduct");
+            return RedirectToAction("ListProduct", "AdProduct");
         }
 
         public ActionResult Delete(MatHang matHang)

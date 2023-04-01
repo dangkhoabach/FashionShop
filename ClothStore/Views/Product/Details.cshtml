@@ -30,16 +30,14 @@
 
                                             <div class="m-bot15"> <strong>Giá: </strong><span class="pro-price">@Model.DonGia</span></div>
                                             <div class="form-group">
-                                                <label>Số lượng:</label><input type="number" placeholder="1" min="0" class="form-control quantity" style="width:80px">
+                                                <label>Số lượng:</label><input type="number" placeholder="1" min="1" class="form-control quantity" style="width:80px">
                                             </div>
                                             <p>
                                                 #@Model.MaMatHang &nbsp; #@Model.NCC.TenNCC &nbsp; #@Model.LoaiHang.TenLoai
                                             </p>
                                             <p>
-                                                <a href=@Url.Action("ThemGioHang","GioHang", new {MaMatHang = Model.MaMatHang,
-                                        @strURL = Request.Url.ToString()}) class="btn btn-info" type="button">
-                                                    <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
-                                                </a>
+                                                <a class="btn-info" href="@Url.Action("ThemGioHang","GioHang", new { MaMatHang = Model.MaMatHang,
+                                            @strURL = Request.Url.ToString()})">Thêm vào giỏ hàng</a>
                                             </p>
                                         </div>
                                     </div>

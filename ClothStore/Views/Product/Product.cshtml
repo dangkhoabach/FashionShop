@@ -26,10 +26,10 @@
                                         <a href="@Url.Action("ThemGioHang","GioHang", new { MaMatHang = item.MaMatHang,
                                             @strURL = Request.Url.ToString()})">Thêm <span>vào </span> giỏ hàng</a>
                                     </p>
-                                    <p class="arrival-review pull-right">
+                                    @*<p class="arrival-review pull-right">
                                         <span class="lnr lnr-heart"></span>
                                         <span class="lnr lnr-frame-expand"></span>
-                                    </p>
+                                    </p>*@
                                 </div>
                             </div>
                             <h4><a href="/Product/Details/@item.MaMatHang">@item.TenMatHang</a></h4>

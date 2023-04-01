@@ -31,11 +31,6 @@ namespace ClothStore.Areas.Admin.Controllers
             return View(listordered);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         public ActionResult Details(int MaHoaDon)
         {
             ViewBag.CTHD = LayCTHD(MaHoaDon);
