@@ -188,7 +188,7 @@ body {
     }
 }
 
-#txtemail2, #txtname2, #txtpassword2, #txtpassword4, .btn-default {
+#txtemail2, #txtname2, #txtphone2, #txtaddress2, #txtpassword2, #txtpassword4, .btn-default {
     display: none;
 }
 

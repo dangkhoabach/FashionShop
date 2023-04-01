@@ -82,13 +82,13 @@
                         <!-- Start Atribute Navigation -->
                         <div class="attr-nav">
                             <ul>
-                                <li class="search">
+                                @*<li class="search">
                                     <a href="#"><span class="lnr lnr-magnifier"></span></a>
-                                </li>
+                                </li>*@
                                 <li class="dropdown">
                                     <a href="/GioHang/GioHang" class="dropdown-toggle" data-toggle="dropdown">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge badge-bg-1">2</span>
+                                        @*<span class="badge badge-bg-1">2</span>*@
                                     </a>
                                 </li><!--/.dropdown-->
                                 <li class="nav-setting">
@@ -119,7 +119,7 @@
                                 <li><a href="/Product/Product">Sản Phẩm</a></li>
                                 @*<li class="scroll"><a href="#feature">Nổi Bật</a></li>
         <li class="scroll"><a href="#blog">Blog</a></li>*@
-                                <li class="scroll"><a href="#newsletter">Liên Hệ</a></li>
+                            <li><a href="/Home/Contact">Liên hệ</a></li>
                                 @if (User.IsInRole("admin"))
                                 {
                                     <li><a href="/Admin/Dashboard">Admin</a></li>
@@ -178,85 +178,7 @@
 
     </section><!--/.clients-->
     <!-- clients end -->
-    <!--newsletter strat -->
-    <!--<section id="newsletter" class="newsletter">
-        <div class="container">
-            <div class="hm-footer-details">
-                <div class="row">
-                    <div class=" col-md-3 col-sm-6 col-xs-12">
-                        <div class="hm-footer-widget">
-                            <div class="hm-foot-title">
-                                <h4>Thông Tin</h4>
-                            </div>--><!--/.hm-foot-title-->
-                            <!--<div class="hm-foot-menu">
-                                <ul>
-                                    <li><a href="#">Thông Tin Về Chúng Tôi</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Liên Hệ</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Tin Tức Mới</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Thông Tin Cửa Hàng</a></li>--><!--/li-->
-                                <!--</ul>--><!--/ul-->
-                            <!--</div>--><!--/.hm-foot-menu-->
-                        <!--</div>--><!--/.hm-footer-widget-->
-                    <!--</div>--><!--/.col-->
-                    <!--<div class=" col-md-3 col-sm-6 col-xs-12">
-                        <div class="hm-footer-widget">
-                            <div class="hm-foot-title">
-                                <h4>Bộ Sưu Tập</h4>
-                            </div>--><!--/.hm-foot-title-->
-                            <!--<div class="hm-foot-menu">
-                                <ul>
-                                    <li><a href="#">wooden chair</a></li>--><!--/li-->
-                                    <!--<li><a href="#">royal cloth sofa</a></li>--><!--/li-->
-                                    <!--<li><a href="#">accent chair</a></li>--><!--/li-->
-                                    <!--<li><a href="#">bed</a></li>--><!--/li-->
-                                    <!--<li><a href="#">hanging lamp</a></li>--><!--/li-->
-                                <!--</ul>--><!--/ul-->
-                            <!--</div>--><!--/.hm-foot-menu-->
-                        <!--</div>--><!--/.hm-footer-widget-->
-                    <!--</div>--><!--/.col-->
-                    <!--<div class=" col-md-3 col-sm-6 col-xs-12">
-                        <div class="hm-footer-widget">
-                            <div class="hm-foot-title">
-                                <h4>Tài Khoản</h4>
-                            </div>--><!--/.hm-foot-title-->
-                            <!--<div class="hm-foot-menu">
-                                <ul>
-                                    <li><a href="#">Thông Tin Tài Khoản</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Danh Sách Yêu Thích</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Cộng Đồng</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Lịch Sử Mua Hàng</a></li>--><!--/li-->
-                                    <!--<li><a href="#">Giỏ Hàng</a></li>--><!--/li-->
-                                <!--</ul>--><!--/ul-->
-                            <!--</div>--><!--/.hm-foot-menu-->
-                        <!--</div>--><!--/.hm-footer-widget-->
-                    <!--</div>--><!--/.col-->
-                    <!--<div class=" col-md-3 col-sm-6  col-xs-12">
-                        <div class="hm-footer-widget">
-                            <div class="hm-foot-title">
-                                <h4>Cập Nhật Mới</h4>
-                            </div>--><!--/.hm-foot-title-->
-                            <!--<div class="hm-foot-para">
-                                <p>
-                                    Nhận thông tin sớm nhất về sản phẩm mới.
-                                </p>
-                            </div>--><!--/.hm-foot-para-->
-                            <!--<div class="hm-foot-email">
-                                <div class="foot-email-box">
-                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ Email">
-                                </div>--><!--/.foot-email-box-->
-                                <!--<div class="foot-email-subscribe">
-                                    <span><i class="fa fa-location-arrow"></i></span>
-                                </div>--><!--/.foot-email-icon-->
-                            <!--</div>--><!--/.hm-foot-email-->
-                        <!--</div>--><!--/.hm-footer-widget-->
-                    <!--</div>--><!--/.col-->
-                <!--</div>--><!--/.row-->
-            <!--</div>--><!--/.hm-footer-details-->
 
-        <!--</div>--><!--/.container-->
-
-    <!--</section>--><!--/newsletter-->
-    <!--newsletter end -->
     <!--footer start-->
     <footer id="footer" class="footer">
         <div class="container">
@@ -266,7 +188,6 @@
                     <a href="#"><i class="fa fa-instagram"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-behance"></i></a>
                 </div>
                 <p>
                     &copy;copyright. designed and developed by <a href="#">Nhóm 002</a>

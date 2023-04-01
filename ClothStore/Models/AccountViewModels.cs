@@ -79,6 +79,17 @@ namespace ClothStore.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(500)]
+        public string Address { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
