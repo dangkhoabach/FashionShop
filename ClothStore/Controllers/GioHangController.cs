@@ -128,8 +128,9 @@ namespace ClothStore.Controllers
             ViewBag.TenKH = User.Identity.GetUserName();
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var user = userManager.FindById(User.Identity.GetUserId());
-            ViewBag.Name = user.UserName;
+            ViewBag.Name = user.Name;
             ViewBag.SoDT = user.PhoneNumber;
+            ViewBag.DiaChi = user.Address;
             return View(lstGioHang);
         }
         [HttpPost]
@@ -151,6 +152,7 @@ namespace ClothStore.Controllers
             hoadon.TongTien = TongTien();
             hoadon.ThanhToan = false;
             hoadon.TrangThai = true;
+            hoadon.DiaChiGiao = user.Address;
 
             dbContext.HoaDon.Add(hoadon);
             dbContext.SaveChanges();

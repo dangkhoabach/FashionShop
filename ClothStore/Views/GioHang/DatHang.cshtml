@@ -76,11 +76,7 @@
 
                             <div class="mb-3">
                                 <label for="FullName">Tên</label>
-                                <input type="text" class="form-control" id="FullName" placeholder="" value="" required disabled>
-                                <div class="invalid-feedback">
-                                    Valid full name is required.
-                                </div>
-
+                                <input type="text" class="form-control" id="FullName" placeholder="" value="@ViewBag.Name" required disabled>
                             </div>
                         </div>
 
@@ -88,34 +84,22 @@
                             <label for="username">Username</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="username" placeholder="Username" required value="@ViewBag.TenKH" disabled>
-                                <div class="invalid-feedback" style="width: 100%;">
-                                    Your username is required.
-                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email">Email<span class="text-muted">(Optional)</span></label>
+                            <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" placeholder="you@example.com" value="@ViewBag.TenKH" disabled>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email">Số điện thoại<span class="text-muted">(Optional)</span></label>
+                            <label for="email">Số điện thoại</label>
                             <input type="email" class="form-control" id="email" placeholder="" value="@ViewBag.SoDT" disabled>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="address">Địa chỉ</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required disabled>
-                            <div class="invalid-feedback">
-                                Please enter your shipping address.
-                            </div>
+                            <input type="text" class="form-control" id="address" placeholder="425 Điện Biên Phủ" value="@ViewBag.DiaChi" required disabled>
                         </div>
                     </div>
                 </div>

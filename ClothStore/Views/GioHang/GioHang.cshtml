@@ -68,7 +68,7 @@
                                                 <td class="border-0 align-middle"><strong>@item.DonGia</strong></td>
                                                 <td class="border-0 align-middle"><strong>@item.SoLuong</strong></td>
                                                 <td class="border-0 align-middle"><strong>@item.ThanhTien</strong></td>
-                                                <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                                <td class="border-0 align-middle"><a href="@Url.Action("XoaGioHang", "GioHang", new {MaMatHang = item.maMatHang})" class="text-dark"><i class="fa fa-trash"></i></a></td>
                                             </tr>
 
                                         }
