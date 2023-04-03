@@ -131,4 +131,15 @@
         });
         reader.readAsDataURL(file);
     });
+
+    /*Ràng buộc kích thước file ảnh không được lớn hơn 10MB*/
+    var fileInput = document.getElementById("uploadimages");
+    fileInput.addEventListener("change", function () {
+        var fileSize = this.files[0].size;
+        if (fileSize > 10485760)
+        {
+            alert("Kích thước ảnh phải nhỏ hơn 10MB");
+            this.value = null;
+        }
+    });
 </script>

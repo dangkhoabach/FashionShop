@@ -329,9 +329,6 @@
     <Content Include="Content\fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
     <Content Include="Content\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\fonts\poppins\OFL.txt" />
-    <Content Include="Content\images\blog\b1.jpg" />
-    <Content Include="Content\images\blog\b2.jpg" />
-    <Content Include="Content\images\blog\b3.jpg" />
     <Content Include="Content\images\clients\c1.png" />
     <Content Include="Content\images\clients\c2.png" />
     <Content Include="Content\images\clients\c3.png" />
@@ -351,23 +348,6 @@
     <Content Include="Content\images\collection\Prada T-shirt.png" />
     <Content Include="Content\images\collection\White_black Embroidered tulle and jersey T-shirt.png" />
     <Content Include="Content\images\collection\Yellow &amp; Blue Tartan Trousers.png" />
-    <Content Include="Content\images\features\f1.jpg" />
-    <Content Include="Content\images\features\f2.jpg" />
-    <Content Include="Content\images\features\f3.jpg" />
-    <Content Include="Content\images\features\f4.jpg" />
-    <Content Include="Content\images\populer-products\p1.png" />
-    <Content Include="Content\images\populer-products\p2.png" />
-    <Content Include="Content\images\populer-products\p3.png" />
-    <Content Include="Content\images\profile\avartar.png" />
-    <Content Include="Content\images\profile\bleue.png" />
-    <Content Include="Content\images\profile\form-wizard-bg.jpg" />
-    <Content Include="Content\images\profile\giropay.png" />
-    <Content Include="Content\images\profile\ideal.png" />
-    <Content Include="Content\images\profile\maestro.png" />
-    <Content Include="Content\images\profile\master-card.png" />
-    <Content Include="Content\images\profile\mister.png" />
-    <Content Include="Content\images\profile\paypal.png" />
-    <Content Include="Content\images\profile\visa.png" />
     <Content Include="Content\images\slider\dior_banner.png" />
     <Content Include="Content\images\slider\dior_banner2.jpg" />
     <Content Include="Content\images\slider\jisoo_dior.jpg" />
@@ -567,7 +547,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\AdProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
