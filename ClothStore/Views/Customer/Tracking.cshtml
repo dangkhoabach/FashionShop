@@ -1,44 +1,43 @@
 ﻿@model IEnumerable<ClothStore.Models.HoaDon>
 
 @{
-    ViewBag.Title = "[Admin] Danh sách đơn hàng";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Tracking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh sách đơn hàng</h2>
+<div class="tracking" style="margin: 150px 200px">
+    <h1 style="text-align: center; margin-bottom: 30px; font-size: 30px">Đơn hàng của tôi</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Mã hóa đơn
+                </th>
+                <th scope="col">
+                    Ngày đặt hàng
+                </th>
+                <th scope="col">
+                    Tổng tiền
+                </th>
+                <th scope="col">
+                    Thanh toán
+                </th>
+                <th scope="col">
+                    Giao hàng
+                </th>
+                <th scope="col">
+                    Địa chỉ
+                </th>
+                <th scope="col">
+                    Trạng thái
+                </th>
+                <th scope="col">
+                    Chi tiết
+                </th>
+            </tr>
+        </thead>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                Mã hóa đơn
-            </th>
-            <th scope="col">
-                Ngày đặt hàng
-            </th>
-            <th scope="col">
-                Tổng tiền
-            </th>
-            <th scope="col">
-                Thanh toán
-            </th>
-            <th scope="col">
-                Giao hàng
-            </th>
-            <th scope="col">
-                Địa chỉ
-            </th>
-            <th scope="col">
-                Trạng thái
-            </th>
-            <th scope="col">
-                Chi tiết
-            </th>
-        </tr>
-    </thead>
-
-    <tbody class="table-group-divider">
-        @foreach (var item in Model)
+        @foreach (var item in ViewBag.Order)
         {
             <tr>
                 <td style="vertical-align: middle">
@@ -60,8 +59,7 @@
                     else
                     {
                         <td>
-                            Chưa thanh toán |
-                            @Html.ActionLink("Đổi", "ChangePaidStatus", new { MaHoaDon = item.MaHoaDon })
+                            Chưa thanh toán
                         </td>
                         ;
                     }
@@ -81,8 +79,7 @@
                         else
                         {
                             <td>
-                                Đang giao hàng |
-                                @Html.ActionLink("Đổi", "ChangeDeliveryStatus", new { MaHoaDon = item.MaHoaDon })
+                                Đang giao hàng
                             </td>
                             ;
                         }
@@ -101,26 +98,34 @@
                 </td>
                 @if (item.TrangThai == true)
                 {
-                    if (item.GiaoHang == true)
+                    if (item.ThanhToan == false && item.GiaoHang == false)
                     {
-                        <td>Hoàn thành</td>
+                        <td>
+                            Đã xác nhận |
+                            @Html.ActionLink("Hủy đơn", "ChangeStatus", new { MaHoaDon = item.MaHoaDon })
+                        </td>
                     }
                     else
                     {
-                        <td>Đã xác nhận</td>
+                        if (item.GiaoHang == true)
+                        {
+                            <td>Hoàn thành</td>
+                        }
+                        else
+                        {
+                            <td>Đã xác nhận</td>
+                        }
                     }
                 }
                 else
                 {
-                    <td>
-                        Đã hủy
-                    </td>
-                    ;
+                    <td>Đã hủy</td>
                 }
                 <td style="vertical-align: middle">
-            @Html.ActionLink("Xem", "Details", new { MaHoaDon = item.MaHoaDon })
-        </td>
+                    @Html.ActionLink("Xem", "OrderedDetail", new { MaHoaDon = item.MaHoaDon })
+                </td>
             </tr>
         }
-    </tbody>
-</table>
+
+    </table>
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClothStore.Models.CT_HoaDon>
+
+@{
+    ViewBag.Title = "OrderedDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tracking" style="margin: 150px 200px">
+    <h1 style="text-align: center; margin-bottom: 30px; font-size: 30px">Chi tiết đơn hàng</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Mã đơn hàng
+                </th>
+                <th scope="col">
+                    Tên mặt hàng
+                </th>
+                <th scope="col">
+                    Mã loại
+                </th>
+                <th scope="col">
+                    Số lượng
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            @using (Html.BeginForm("DeleteCTHD", "Ordered", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                foreach (var item in ViewBag.CTHD)
+                {
+                    <tr>
+                        <td style="vertical-align: middle">
+                            @item.MaHoaDon
+                        </td>
+                        <td style="vertical-align: middle">
+                            @item.MatHang.TenMatHang
+                        </td>
+                        <td style="vertical-align: middle">
+                            @item.MatHang.LoaiHang.MaLoai
+                        </td>
+                        <td style="vertical-align: middle">
+                            @item.SoLuong
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div style="text-align: center; margin-top: 30px">
+        @Html.ActionLink("Quay lại danh sách đơn hàng", "Tracking")
+    </div>
+</div>

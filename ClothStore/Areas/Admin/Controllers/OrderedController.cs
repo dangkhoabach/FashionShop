@@ -39,15 +39,25 @@ namespace ClothStore.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Delete(HoaDon hoaDon)
+        public ActionResult ChangePaidStatus(HoaDon hoaDon)
         {
             var item = _dbContext.HoaDon.Find(hoaDon.MaHoaDon);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            _dbContext.HoaDon.Remove(item);
+
+            item.ThanhToan = true;
+
             _dbContext.SaveChanges();
+
+            return RedirectToAction("List", "Ordered");
+        }
+
+        public ActionResult ChangeDeliveryStatus(HoaDon hoaDon)
+        {
+            var item = _dbContext.HoaDon.Find(hoaDon.MaHoaDon);
+
+            item.GiaoHang = true;
+
+            _dbContext.SaveChanges();
+
             return RedirectToAction("List", "Ordered");
         }
     }
